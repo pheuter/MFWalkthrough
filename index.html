@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>MFWalkthrough by pheuter</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>MFWalkthrough</h1>
+        <p>A container view controller for iOS that manages conditional navigation between view controllers</p>
+        <p class="view"><a href="https://github.com/pheuter/MFWalkthrough">View the Project on GitHub <small>pheuter/MFWalkthrough</small></a></p>
+        <ul>
+          <li><a href="https://github.com/pheuter/MFWalkthrough/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/pheuter/MFWalkthrough/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/pheuter/MFWalkthrough">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="mfwalkthrough" class="anchor" href="#mfwalkthrough"><span class="octicon octicon-link"></span></a>MFWalkthrough</h1>
+
+<p><a href="http://cocoadocs.org/docsets/MFWalkthrough"><img src="http://cocoapod-badges.herokuapp.com/v/MFWalkthrough/badge.png" alt="Version"></a>
+<a href="http://cocoadocs.org/docsets/MFWalkthrough"><img src="http://cocoapod-badges.herokuapp.com/p/MFWalkthrough/badge.png" alt="Platform"></a></p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>MFWalkthrough is available through <a href="http://cocoapods.org">CocoaPods</a>, to install
+it simply add the following line to your Podfile:</p>
+
+<pre><code>pod "MFWalkthrough", "~&gt; 0.0.1"
+</code></pre>
+
+<h2>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<p><img src="https://dl.dropboxusercontent.com/u/1803181/MFWalkthroughDemoOptimized.gif" alt="Demo"></p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a name="display-walkthrough-containing-3-view-controllers" class="anchor" href="#display-walkthrough-containing-3-view-controllers"><span class="octicon octicon-link"></span></a>Display walkthrough containing 3 view controllers</h3>
+
+<ul>
+<li>
+<code>MFWalkthroughDataSource</code> - Used to determine what property to observe to enable transitions</li>
+<li>
+<code>MFWalkthroughDelegate</code> - React to various transitions and states</li>
+</ul><div class="highlight highlight-objective-c"><pre><span class="cp">#import &lt;MFWalkthrough/MFWalkthroughViewController.h&gt;</span>
+
+<span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="nc">UIViewController</span> <span class="o">&lt;</span><span class="n">MFWalkthroughDataSource</span><span class="p">,</span> <span class="n">MFWalkthroughDelegate</span><span class="o">&gt;</span>
+</pre></div>
+
+<p>In the implementation,</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="c1">// Initialize your view controllers</span>
+<span class="n">UIViewController</span> <span class="o">*</span><span class="n">firstController</span><span class="p">;</span>
+<span class="n">UIViewController</span> <span class="o">*</span><span class="n">secondController</span><span class="p">;</span>
+<span class="n">UIViewController</span> <span class="o">*</span><span class="n">lastController</span><span class="p">;</span>
+
+<span class="c1">// Create the MFWalkthroughViewController instance</span>
+<span class="n">MFWalkthroughViewController</span> <span class="o">*</span><span class="n">walkthroughController</span> <span class="o">=</span>
+      <span class="p">[[</span><span class="n">MFWalkthroughViewController</span> <span class="n">alloc</span><span class="p">]</span>
+          <span class="nl">initWithViewControllers:</span><span class="p">@[</span> <span class="n">firstController</span><span class="p">,</span> <span class="n">secondController</span><span class="p">,</span> <span class="n">lastController</span> <span class="p">]];</span>
+
+<span class="c1">// Present the walkthrough controller</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">navigationController</span> <span class="n">pushViewController</span><span class="o">:</span><span class="n">walkthroughController</span>
+                                       <span class="nl">animated:</span><span class="nb">YES</span><span class="p">];</span>
+</pre></div>
+
+<p>Required data source method:</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">walkthroughViewController:</span><span class="p">(</span><span class="n">MFWalkthroughViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">walkthroughViewController</span> <span class="nf">enableContinuePropertyForViewController:</span><span class="p">(</span><span class="n">UIViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">viewController</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s">@"somePropertyThatDeterminesIfContinueIsEnabled"</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Required delegate methods:</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">walkthroughViewController:</span><span class="p">(</span><span class="n">MFWalkthroughViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">walkthroughViewController</span> <span class="nf">willGoBackFromFirstViewController:</span><span class="p">(</span><span class="n">UIViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">firstViewController</span> <span class="p">{</span>
+  <span class="n">NSLog</span><span class="p">(</span><span class="s">@"I'm at the very beginning!"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">walkthroughViewController:</span><span class="p">(</span><span class="n">MFWalkthroughViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">walkthroughViewController</span> <span class="nf">willContinueFromLastViewController:</span><span class="p">(</span><span class="n">UIViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">lastViewController</span> <span class="p">{</span>
+  <span class="n">NSLog</span><span class="p">(</span><span class="s">@"I'm at the very end!"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>The following delegate methods are optional:</p>
+
+<ul>
+<li><code>- (void)walkthroughViewController:couldNotContinueFromViewController:</code></li>
+<li><code>- (void)walkthroughViewController:willContinueFromViewController:toViewController:</code></li>
+<li><code>- (void)walkthroughViewController:willGoBackFromViewController:toViewController:</code></li>
+</ul><p>Refer to source documentation for more detail</p>
+
+<h2>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+
+<p>Mark Fayngersh, <a href="mailto:phunny.phacts@gmail.com">phunny.phacts@gmail.com</a></p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>MFWalkthrough is available under the MIT license. See the LICENSE file for more info.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/pheuter">pheuter</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
