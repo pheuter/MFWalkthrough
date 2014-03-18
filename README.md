@@ -3,6 +3,17 @@
 [![Version](http://cocoapod-badges.herokuapp.com/v/MFWalkthrough/badge.png)](http://cocoadocs.org/docsets/MFWalkthrough)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/MFWalkthrough/badge.png)](http://cocoadocs.org/docsets/MFWalkthrough)
 
+## Installation
+
+MFWalkthrough is available through [CocoaPods](http://cocoapods.org), to install
+it simply add the following line to your Podfile:
+
+    pod "MFWalkthrough", "~> 0.0.1"
+
+## Demo
+
+![Demo](https://dl.dropboxusercontent.com/u/1803181/MFWalkthroughDemoOptimized.gif)
+
 ## Usage
 
 ### Display walkthrough containing 3 view controllers
@@ -61,19 +72,6 @@ The following delegate methods are optional:
 - `- (void)walkthroughViewController:willGoBackFromViewController:toViewController:`
 
 Refer to source documentation for more detail
-
-## Demo
-
-![Demo](https://dl.dropboxusercontent.com/u/1803181/MFWalkthroughDemoOptimized.gif)
-
-## Requirements
-
-## Installation
-
-MFWalkthrough is available through [CocoaPods](http://cocoapods.org), to install
-it simply add the following line to your Podfile:
-
-    pod "MFWalkthrough", "~> 0.1.0"
 
 ## Author
 
