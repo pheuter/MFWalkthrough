@@ -1,0 +1,3 @@
+platform :ios
+
+pod "MFWalkthrough", :path => "../MFWalkthrough.podspec"
