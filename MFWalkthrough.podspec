@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MFWalkthrough"
-  s.version          = "0.1.0"
+  s.version          = "0.0.1"
   s.summary          = "A container view controller for iOS that manages conditional navigation between view controllers"
   s.homepage         = "http://pheuter.github.io/MFWalkthrough"
   s.license          = 'MIT'
