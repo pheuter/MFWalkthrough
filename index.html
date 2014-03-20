@@ -45,7 +45,9 @@ it simply add the following line to your Podfile:</p>
 <h2>
 <a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h2>
 
-<p><img src="https://dl.dropboxusercontent.com/u/1803181/MFWalkthroughDemoOptimized.gif" alt="Demo"></p>
+<p>You can find the sample project in <strong>Example/WalkthroughDemo</strong>.</p>
+
+<p><img src="https://dl.dropboxusercontent.com/u/1803181/MFWalkthroughDemo.gif" alt="Demo"></p>
 
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -107,6 +109,20 @@ it simply add the following line to your Podfile:</p>
 </ul><p>Refer to source documentation for more detail</p>
 
 <h2>
+<a name="customization" class="anchor" href="#customization"><span class="octicon octicon-link"></span></a>Customization</h2>
+
+<p>MFWalkthrough is designed to be used in conjunction with UINavigationController, simplifying conditional transitions between view controllers depending on some intermediate state.</p>
+
+<p><a href="https://github.com/sebastienwindal/FRDLivelyButton">FRDLivelyButton</a> is used to render the navigation buttons. You can customize the button colors and line widths via the following <code>MFWalkthroughViewController</code> properties:</p>
+
+<ul>
+<li>
+<code>(UIColor *)navigationButtonColor</code> - Defaults to <code>navigationBar.tintColor</code>
+</li>
+<li>
+<code>(CGFloat)navigationButtonLineWidth</code> - Defaults to <code>3.0f</code>
+</li>
+</ul><h2>
 <a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
 
 <p>Mark Fayngersh, <a href="mailto:phunny.phacts@gmail.com">phunny.phacts@gmail.com</a></p>
