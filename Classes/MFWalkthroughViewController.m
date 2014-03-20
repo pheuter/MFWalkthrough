@@ -1,6 +1,6 @@
 //
 //  MFWalkthroughViewController.m
-//  Prand
+//  MFWalkthrough
 //
 //  Created by Mark Fayngersh on 3/15/14.
 //  Copyright (c) 2014 Mark Fayngersh. All rights reserved.
@@ -46,6 +46,15 @@ typedef NS_ENUM(NSInteger, kMFWalkthroughDirection) {
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+
+  // Initialize default styles
+  if (!self.navigationButtonColor) {
+    self.navigationButtonColor =
+        self.navigationController.navigationBar.tintColor;
+  }
+  if (!self.navigationButtonLineWidth) {
+    self.navigationButtonLineWidth = 3.0f;
+  }
 
   // Initialize navigation buttons
   self.navigationItem.leftBarButtonItem =
@@ -203,8 +212,9 @@ typedef NS_ENUM(NSInteger, kMFWalkthroughDirection) {
         [[FRDLivelyButton alloc] initWithFrame:CGRectMake(0, 0, 36, 28)];
     [_backButton setStyle:kFRDLivelyButtonStyleCaretLeft animated:NO];
     [_backButton setOptions:@{
-                              kFRDLivelyButtonLineWidth : @(3.0f),
-                              kFRDLivelyButtonColor : [UIColor whiteColor]
+                              kFRDLivelyButtonLineWidth :
+                              @(self.navigationButtonLineWidth),
+                              kFRDLivelyButtonColor : self.navigationButtonColor
                             }];
     [_backButton addTarget:self
                     action:@selector(goBack)
@@ -219,10 +229,12 @@ typedef NS_ENUM(NSInteger, kMFWalkthroughDirection) {
     _forwardButton =
         [[FRDLivelyButton alloc] initWithFrame:CGRectMake(0, 0, 36, 28)];
     [_forwardButton setStyle:kFRDLivelyButtonStyleClose animated:NO];
-    [_forwardButton setOptions:@{
-                                 kFRDLivelyButtonLineWidth : @(3.0f),
-                                 kFRDLivelyButtonColor : [UIColor whiteColor]
-                               }];
+    [_forwardButton
+        setOptions:@{
+                     kFRDLivelyButtonLineWidth :
+                     @(self.navigationButtonLineWidth),
+                     kFRDLivelyButtonColor : self.navigationButtonColor
+                   }];
     [_forwardButton addTarget:self
                        action:@selector(goForward:)
              forControlEvents:UIControlEventTouchUpInside];

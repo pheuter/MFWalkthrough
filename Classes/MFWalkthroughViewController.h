@@ -1,6 +1,6 @@
 //
 //  MFWalkthroughViewController.h
-//  Prand
+//  MFWalkthrough
 //
 //  Created by Mark Fayngersh on 3/15/14.
 //  Copyright (c) 2014 Mark Fayngersh. All rights reserved.
@@ -20,6 +20,18 @@
  *  Read-only property representing array of loaded view controllers
  */
 @property(readonly) NSArray *viewControllers;
+
+/**
+ *  The color of the left, right and X buttons in the nav bar. Defaults to
+ *  navigationBar.tintColor;
+ */
+@property(nonatomic) UIColor *navigationButtonColor;
+
+/**
+ *  The width of the lines used to render the navigation buttons. Defaults to
+ *  3.0f.
+ */
+@property(nonatomic) CGFloat navigationButtonLineWidth;
 
 /**
  *  Main initializer

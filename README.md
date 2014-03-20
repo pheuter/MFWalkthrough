@@ -12,7 +12,9 @@ it simply add the following line to your Podfile:
 
 ## Demo
 
-![Demo](https://dl.dropboxusercontent.com/u/1803181/MFWalkthroughDemoOptimized.gif)
+You can find the sample project in **Example/WalkthroughDemo**.
+
+![Demo](https://dl.dropboxusercontent.com/u/1803181/MFWalkthroughDemo.gif)
 
 ## Usage
 
@@ -72,6 +74,15 @@ The following delegate methods are optional:
 - `- (void)walkthroughViewController:willGoBackFromViewController:toViewController:`
 
 Refer to source documentation for more detail
+
+## Customization
+
+MFWalkthrough is designed to be used in conjunction with UINavigationController, simplifying conditional transitions between view controllers depending on some intermediate state.
+
+[FRDLivelyButton](https://github.com/sebastienwindal/FRDLivelyButton) is used to render the navigation buttons. You can customize the button colors and line widths via the following `MFWalkthroughViewController` properties:
+
+- `(UIColor *)navigationButtonColor` - Defaults to `navigationBar.tintColor`
+- `(CGFloat)navigationButtonLineWidth` - Defaults to `3.0f`
 
 ## Author
 
