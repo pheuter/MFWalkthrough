@@ -1,7 +1,8 @@
 language: objective-c
-xcode_project: WalkthroughDemo.xcodeproj
-xcode_scheme: WalkthroughDemoTests
-xcode_sdk: iphonesimulator7.0
+
 before_install:
   - cd Example
-  - gem install cocoapods
+
+install: make install
+
+script: make ci
