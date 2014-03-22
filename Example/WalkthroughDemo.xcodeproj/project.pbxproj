@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C2B15FB939D4B6B904DF33E /* libPods-WalkthroughDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE75C3AC7A2466F98A31F82 /* libPods-WalkthroughDemoTests.a */; };
 		4731815FCC6F4F51A06FDA1A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F56C71217A445B9DA165AE /* libPods.a */; };
 		4D0DE10A18D90C1E005D7918 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0DE10918D90C1E005D7918 /* ViewController.m */; };
 		4DDBC62018D9086900A66F9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDBC61F18D9086900A66F9C /* Foundation.framework */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3285C3566D90416D82F2F5D7 /* Pods-WalkthroughDemoTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkthroughDemoTests.xcconfig"; path = "Pods/Pods-WalkthroughDemoTests.xcconfig"; sourceTree = "<group>"; };
+		4BE75C3AC7A2466F98A31F82 /* libPods-WalkthroughDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WalkthroughDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0DE10818D90C1E005D7918 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4D0DE10918D90C1E005D7918 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4DDBC61C18D9086900A66F9C /* WalkthroughDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkthroughDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +76,7 @@
 				4DDBC63918D9086900A66F9C /* XCTest.framework in Frameworks */,
 				4DDBC63B18D9086900A66F9C /* UIKit.framework in Frameworks */,
 				4DDBC63A18D9086900A66F9C /* Foundation.framework in Frameworks */,
+				3C2B15FB939D4B6B904DF33E /* libPods-WalkthroughDemoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +91,7 @@
 				4DDBC61E18D9086900A66F9C /* Frameworks */,
 				4DDBC61D18D9086900A66F9C /* Products */,
 				6AAEB89B05C24C11BA771EC7 /* Pods.xcconfig */,
+				3285C3566D90416D82F2F5D7 /* Pods-WalkthroughDemoTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +112,7 @@
 				4DDBC62318D9086900A66F9C /* UIKit.framework */,
 				4DDBC63818D9086900A66F9C /* XCTest.framework */,
 				83F56C71217A445B9DA165AE /* libPods.a */,
+				4BE75C3AC7A2466F98A31F82 /* libPods-WalkthroughDemoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -178,9 +184,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DDBC64B18D9086900A66F9C /* Build configuration list for PBXNativeTarget "WalkthroughDemoTests" */;
 			buildPhases = (
+				7E3A4EBE7A774C2099152E24 /* Check Pods Manifest.lock */,
 				4DDBC63318D9086900A66F9C /* Sources */,
 				4DDBC63418D9086900A66F9C /* Frameworks */,
 				4DDBC63518D9086900A66F9C /* Resources */,
+				F1632DDF60C547D0921F1ECE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +267,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		7E3A4EBE7A774C2099152E24 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		B5697C9BA00448E095B01074 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,6 +295,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1632DDF60C547D0921F1ECE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-WalkthroughDemoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -425,8 +463,10 @@
 		};
 		4DDBC64C18D9086900A66F9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3285C3566D90416D82F2F5D7 /* Pods-WalkthroughDemoTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WalkthroughDemo.app/WalkthroughDemo";
+				CLANG_ENABLE_MODULES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -447,8 +487,10 @@
 		};
 		4DDBC64D18D9086900A66F9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3285C3566D90416D82F2F5D7 /* Pods-WalkthroughDemoTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WalkthroughDemo.app/WalkthroughDemo";
+				CLANG_ENABLE_MODULES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

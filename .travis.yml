@@ -1,0 +1,8 @@
+language: objective-c
+
+before_install:
+  - cd Example
+
+  install: make install
+
+  script: make ci

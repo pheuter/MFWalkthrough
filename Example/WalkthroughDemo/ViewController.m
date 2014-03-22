@@ -12,7 +12,6 @@
   UISwitch *_switchView;
 }
 
-@property(readwrite) BOOL isValid;
 @property(readonly) UISwitch *switchView;
 
 @end

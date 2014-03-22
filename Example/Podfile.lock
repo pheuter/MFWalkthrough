@@ -1,0 +1,32 @@
+PODS:
+  - Expecta (0.2.4)
+  - FRDLivelyButton (1.1.2)
+  - KVOController (1.0.0)
+  - MFWalkthrough (0.0.1):
+    - FRDLivelyButton (~> 1.1.2)
+    - KVOController (~> 1.0)
+  - OCHamcrest (3.0.1)
+  - OCMockito (1.1.0):
+    - OCHamcrest (~> 3.0)
+  - Specta (0.2.1)
+
+DEPENDENCIES:
+  - Expecta (~> 0.2.3)
+  - MFWalkthrough (from `../MFWalkthrough.podspec`)
+  - OCMockito (~> 1.1)
+  - Specta (~> 0.2.1)
+
+EXTERNAL SOURCES:
+  MFWalkthrough:
+    :path: ../MFWalkthrough.podspec
+
+SPEC CHECKSUMS:
+  Expecta: 5c147dedfea5fbcf773995f7e65020abcc936ce5
+  FRDLivelyButton: ef29e27fa81a9a434412d1f3b266a2736349663b
+  KVOController: ead0912769f4fae399ca2274a6755b788b773958
+  MFWalkthrough: b209adf030d8b3dde252efd749e982775f59a783
+  OCHamcrest: 782c52ae8c673e5d6060a65005cfd26d20d519ba
+  OCMockito: 317fa0cf75c9b0d73d2be335789c556537be7fd2
+  Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
+
+COCOAPODS: 0.29.0

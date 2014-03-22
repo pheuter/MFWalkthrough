@@ -11,6 +11,8 @@
 
 @interface ViewController : UIViewController
 
+@property(readwrite) BOOL isValid;
+
 - (void)shakeAnimation;
 
 @end
