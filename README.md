@@ -3,12 +3,16 @@
 [![Build Status](https://travis-ci.org/pheuter/MFWalkthrough.svg?branch=master)](https://travis-ci.org/pheuter/MFWalkthrough)
 [![Version](http://cocoapod-badges.herokuapp.com/v/MFWalkthrough/badge.png)](http://cocoadocs.org/docsets/MFWalkthrough)
 
+## Blog post
+
+[MFWalkthrough: A Container View Controller for iOS](http://blog.markfayngersh.com/mfwalkthrough-container-view-controller-for-ios)
+
 ## Installation
 
 MFWalkthrough is available through [CocoaPods](http://cocoapods.org), to install
 it simply add the following line to your Podfile:
 
-    pod "MFWalkthrough", "~> 0.0.1"
+    pod "MFWalkthrough", "~> 0.0.2"
 
 ## Demo
 
@@ -83,6 +87,14 @@ MFWalkthrough is designed to be used in conjunction with UINavigationController,
 
 - `(UIColor *)navigationButtonColor` - Defaults to `navigationBar.tintColor`
 - `(CGFloat)navigationButtonLineWidth` - Defaults to `3.0f`
+
+## Testing
+
+To run the unit tests:
+
+    $ cd Example
+    $ make install
+    $ make ci
 
 ## Author
 
