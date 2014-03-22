@@ -3,6 +3,6 @@ language: objective-c
 before_install:
   - cd Example
 
-  install: make install
+install: make install
 
-  script: make ci
+script: make ci
