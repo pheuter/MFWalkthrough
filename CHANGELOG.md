@@ -1,13 +1,11 @@
 # MFWalkthrough CHANGELOG
 
-## 0.0.2 (under development)
+## 0.0.2
 
+- Added **Example/WalkthroughDemo**
 - Unit tests
-- More customization look and feel
-- Example project
+- Customization over navigation button color and line width
 
 ## 0.0.1
 
 Initial release.
-
-*Note: In early stages of development, proceed with caution!*
