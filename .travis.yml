@@ -4,4 +4,4 @@ xcode_scheme: WalkthroughDemoTests
 xcode_sdk: iphonesimulator7.0
 before_install:
   - cd Example
-
+  - gem install cocoapods
