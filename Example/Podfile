@@ -4,6 +4,6 @@ pod "MFWalkthrough", :path => "../MFWalkthrough.podspec"
 
 target :WalkthroughDemoTests, :exclusive => true do
   pod 'Specta',    '~> 0.2.1'
-  pod 'Expecta',   '~> 0.2.3'
+  pod 'Expecta',   '~> 0.3.0'
   pod 'OCMockito', '~> 1.1'
 end

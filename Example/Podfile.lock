@@ -1,5 +1,5 @@
 PODS:
-  - Expecta (0.2.4)
+  - Expecta (0.3.0)
   - FRDLivelyButton (1.1.2)
   - KVOController (1.0.0)
   - MFWalkthrough (0.0.2):
@@ -11,7 +11,7 @@ PODS:
   - Specta (0.2.1)
 
 DEPENDENCIES:
-  - Expecta (~> 0.2.3)
+  - Expecta (~> 0.3.0)
   - MFWalkthrough (from `../MFWalkthrough.podspec`)
   - OCMockito (~> 1.1)
   - Specta (~> 0.2.1)
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
     :path: ../MFWalkthrough.podspec
 
 SPEC CHECKSUMS:
-  Expecta: 5c147dedfea5fbcf773995f7e65020abcc936ce5
+  Expecta: 322f1dc42610106a5ba9871b4924cf1635d80833
   FRDLivelyButton: ef29e27fa81a9a434412d1f3b266a2736349663b
   KVOController: ead0912769f4fae399ca2274a6755b788b773958
   MFWalkthrough: ec9eb9f05db1205c38c616286a58f1095346cb05

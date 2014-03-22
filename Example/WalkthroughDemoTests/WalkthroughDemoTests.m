@@ -103,7 +103,7 @@ SpecBegin(MFWalkthrough)
                  couldNotContinueFromViewController:firstViewController];
       });
 
-      it(@"should react to property change and transition to second view controller", ^AsyncBlock {
+      it(@"should react to property change and transition to second view controller", ^{
         FRDLivelyButton *continueButton = (FRDLivelyButton *) walkthroughController.navigationItem.rightBarButtonItem.customView;
 
         expect(continueButton.buttonStyle).to.equal(kFRDLivelyButtonStyleClose);
@@ -112,6 +112,8 @@ SpecBegin(MFWalkthrough)
 
         [continueButton sendActionsForControlEvents:UIControlEventTouchUpInside];
 
+        expect(navigationController.title).will.equal(@"Second");
+
         [verifyCount(delegate, never()) walkthroughViewController:walkthroughController
                                couldNotContinueFromViewController:firstViewController];
 
@@ -119,39 +121,24 @@ SpecBegin(MFWalkthrough)
                      willContinueFromViewController:firstViewController
                                    toViewController:secondViewController];
 
-        // Wait for transition animation to finish
-        dispatch_after(
-          dispatch_time(DISPATCH_TIME_NOW, (int64_t) (0.5 * NSEC_PER_SEC)),
-          dispatch_get_main_queue(), ^{
-            expect(navigationController.title).to.equal(@"Second");
-            done();
-          });
       });
 
-      it(@"should go back from second to first view controller", ^AsyncBlock {
+      it(@"should go back from second to first view controller", ^{
         FRDLivelyButton *backButton = (FRDLivelyButton *) walkthroughController.navigationItem.leftBarButtonItem.customView;
         FRDLivelyButton *continueButton = (FRDLivelyButton *) walkthroughController.navigationItem.rightBarButtonItem.customView;
 
         firstViewController.isValid = YES;
         [continueButton sendActionsForControlEvents:UIControlEventTouchUpInside];
 
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
-          (int64_t) (0.5 * NSEC_PER_SEC)),
-          dispatch_get_main_queue(), ^{
-            expect(navigationController.title).to.equal(@"Second");
-            [backButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+        expect(navigationController.title).will.equal(@"Second");
 
-            [verify(delegate) walkthroughViewController:walkthroughController
-                           willGoBackFromViewController:secondViewController
-                                       toViewController:firstViewController];
+        [backButton sendActionsForControlEvents:UIControlEventTouchUpInside];
 
-            dispatch_after(
-              dispatch_time(DISPATCH_TIME_NOW, (int64_t) (0.5 * NSEC_PER_SEC)),
-              dispatch_get_main_queue(), ^{
-                expect(navigationController.title).to.equal(@"First");
-                done();
-              });
-          });
+        expect(navigationController.title).will.equal(@"First");
+
+        [verify(delegate) walkthroughViewController:walkthroughController
+                       willGoBackFromViewController:secondViewController
+                                   toViewController:firstViewController];
       });
 
       it(@"should call delegate method for continuing from last view controller", ^AsyncBlock {
@@ -159,24 +146,19 @@ SpecBegin(MFWalkthrough)
         firstViewController.isValid = secondViewController.isValid = YES;
         [continueButton sendActionsForControlEvents:UIControlEventTouchUpInside];
 
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
-          (int64_t) (0.5 * NSEC_PER_SEC)),
-          dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+          [continueButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+
+          dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             [continueButton sendActionsForControlEvents:UIControlEventTouchUpInside];
 
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
-              (int64_t) (0.5 * NSEC_PER_SEC)),
-              dispatch_get_main_queue(), ^{
-                expect(navigationController.title).to.equal(@"Last");
+            expect(navigationController.title).to.equal(@"Last");
+            [verify(delegate) walkthroughViewController:walkthroughController
+                     willContinueFromLastViewController:lastViewController];
 
-                [continueButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-
-                [verify(delegate) walkthroughViewController:walkthroughController
-                         willContinueFromLastViewController:lastViewController];
-
-                done();
-              });
+            done();
           });
+        });
       });
     });
 
