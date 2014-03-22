@@ -13,8 +13,8 @@
 
 @interface MFWalkthroughViewController : UIViewController
 
-@property(nonatomic, weak) id<MFWalkthroughDelegate> delegate;
-@property(nonatomic, weak) id<MFWalkthroughDataSource> dataSource;
+@property(nonatomic, weak) id <MFWalkthroughDelegate> delegate;
+@property(nonatomic, weak) id <MFWalkthroughDataSource> dataSource;
 
 /**
  *  Read-only property representing array of loaded view controllers
@@ -59,9 +59,8 @@
  *
  *  @return A string representing the property name on the viewController
  */
-- (NSString *)walkthroughViewController:
-                  (MFWalkthroughViewController *)walkthroughViewController
-    enableContinuePropertyForViewController:(UIViewController *)viewController;
+- (NSString *)walkthroughViewController:(MFWalkthroughViewController *)walkthroughViewController
+enableContinuePropertyForViewController:(UIViewController *)viewController;
 
 @end
 
@@ -76,10 +75,8 @@
  *  @param walkthroughViewController MFWalkthroughViewController instance
  *  @param currentViewController            The current view controller
  */
-- (void)walkthroughViewController:
-            (MFWalkthroughViewController *)walkthroughViewController
-    couldNotContinueFromViewController:
-        (UIViewController *)currentViewController;
+- (void) walkthroughViewController:(MFWalkthroughViewController *)walkthroughViewController
+couldNotContinueFromViewController:(UIViewController *)currentViewController;
 
 /**
  *  Occurs when the right bar button (continue) is tapped and
@@ -91,10 +88,9 @@
  *  @param newViewController         The next view controller that is about to
  *  be shown
  */
-- (void)walkthroughViewController:
-            (MFWalkthroughViewController *)walkthroughViewController
-    willContinueFromViewController:(UIViewController *)currentViewController
-                  toViewController:(UIViewController *)newViewController;
+- (void)walkthroughViewController:(MFWalkthroughViewController *)walkthroughViewController
+   willContinueFromViewController:(UIViewController *)currentViewController
+                 toViewController:(UIViewController *)newViewController;
 
 /**
  *  Just like willContinueFromViewController:toViewController:, but going back.
@@ -104,8 +100,7 @@
  *  @param newViewController         The previous view controller that is about
  *  to be shown
  */
-- (void)walkthroughViewController:
-            (MFWalkthroughViewController *)walkthroughViewController
+- (void)walkthroughViewController:(MFWalkthroughViewController *)walkthroughViewController
      willGoBackFromViewController:(UIViewController *)currentViewController
                  toViewController:(UIViewController *)newViewController;
 
@@ -118,9 +113,8 @@
  *  @param walkthroughViewController MFWalkthroughViewController instance
  *  @param firstViewController       The first view controller
  */
-- (void)walkthroughViewController:
-            (MFWalkthroughViewController *)walkthroughViewController
-    willGoBackFromFirstViewController:(UIViewController *)firstViewController;
+- (void)walkthroughViewController:(MFWalkthroughViewController *)walkthroughViewController
+willGoBackFromFirstViewController:(UIViewController *)firstViewController;
 
 /**
  *  Occurs when the right bar button (continue) is tapped on the very last view
@@ -129,8 +123,7 @@
  *  @param walkthroughViewController MFWalkthroughViewController instance
  *  @param lastViewController        The last view controller
  */
-- (void)walkthroughViewController:
-            (MFWalkthroughViewController *)walkthroughViewController
-    willContinueFromLastViewController:(UIViewController *)lastViewController;
+- (void) walkthroughViewController:(MFWalkthroughViewController *)walkthroughViewController
+willContinueFromLastViewController:(UIViewController *)lastViewController;
 
 @end
