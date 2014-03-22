@@ -11,13 +11,12 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application
-    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)          application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   self.window.backgroundColor = [UIColor whiteColor];
 
-  // First we instantiate the view controllers that we'll want to
-  // walkthrough
+  // First we instantiate the view controllers that we'll want to walkthrough
   ViewController *firstViewController = [[ViewController alloc] init];
   firstViewController.title = @"First";
   ViewController *secondViewController = [[ViewController alloc] init];
@@ -27,10 +26,9 @@
 
   // Then we initialize a MFWalkthroughViewController object with the view
   // controllers
-  MFWalkthroughViewController *
-  walkthroughController = [[MFWalkthroughViewController alloc]
-      initWithViewControllers:
-          @[ firstViewController, secondViewController, lastViewController ]];
+  MFWalkthroughViewController *walkthroughController = [[MFWalkthroughViewController alloc]
+                                                                                     initWithViewControllers:
+                                                                                       @[firstViewController, secondViewController, lastViewController]];
 
   // Don't forget to assign dataSource and delegate properties
   walkthroughController.dataSource = self;
@@ -39,7 +37,7 @@
   // MFWalkthroughViewController is designed to be used in conjunction with
   // UINavigationController
   UINavigationController *navigationController = [[UINavigationController alloc]
-      initWithRootViewController:walkthroughController];
+                                                                          initWithRootViewController:walkthroughController];
 
   self.window.rootViewController = navigationController;
   [self.window makeKeyAndVisible];
@@ -50,10 +48,8 @@
 
 // Required
 
-- (NSString *)walkthroughViewController:
-                  (MFWalkthroughViewController *)walkthroughViewController
-    enableContinuePropertyForViewController:(UIViewController *)viewController {
-
+- (NSString *)walkthroughViewController:(MFWalkthroughViewController *)walkthroughViewController
+enableContinuePropertyForViewController:(UIViewController *)viewController {
   // If you take a look at ViewController.m, you'll notice a property named
   // `isValid` that is toggled by the UISwitch.
   return @"isValid";
@@ -63,21 +59,18 @@
 
 // Required
 
-- (void)walkthroughViewController:
-            (MFWalkthroughViewController *)walkthroughViewController
-    willContinueFromLastViewController:(UIViewController *)lastViewController {
+- (void) walkthroughViewController:(MFWalkthroughViewController *)walkthroughViewController
+willContinueFromLastViewController:(UIViewController *)lastViewController {
 }
 
-- (void)walkthroughViewController:
-            (MFWalkthroughViewController *)walkthroughViewController
-    willGoBackFromFirstViewController:(UIViewController *)firstViewController {
+- (void)walkthroughViewController:(MFWalkthroughViewController *)walkthroughViewController
+willGoBackFromFirstViewController:(UIViewController *)firstViewController {
 }
 
 // Optional
 
-- (void)walkthroughViewController:
-            (MFWalkthroughViewController *)walkthroughViewController
-    couldNotContinueFromViewController:(ViewController *)currentViewController {
+- (void) walkthroughViewController:(MFWalkthroughViewController *)walkthroughViewController
+couldNotContinueFromViewController:(ViewController *)currentViewController {
   [currentViewController shakeAnimation];
 }
 

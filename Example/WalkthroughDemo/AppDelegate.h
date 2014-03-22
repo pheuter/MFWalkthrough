@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MFWalkthrough/MFWalkthroughViewController.h>
 
-@interface AppDelegate
-    : UIResponder <UIApplicationDelegate, MFWalkthroughDataSource,
-                   MFWalkthroughDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, MFWalkthroughDataSource, MFWalkthroughDelegate>
 
 @property(strong, nonatomic) UIWindow *window;
 

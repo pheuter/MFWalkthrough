@@ -22,22 +22,21 @@
   [super viewDidLoad];
 
   [self.view addSubview:self.switchView];
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:self.switchView
-                                        attribute:NSLayoutAttributeCenterX
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:self.view
-                                        attribute:NSLayoutAttributeCenterX
-                                       multiplier:1
-                                         constant:0]];
-  [self.view addConstraint:[NSLayoutConstraint
-                               constraintWithItem:self.switchView
-                                        attribute:NSLayoutAttributeCenterY
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:self.view
-                                        attribute:NSLayoutAttributeCenterY
-                                       multiplier:1
-                                         constant:0]];
+  [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.switchView
+                                                        attribute:NSLayoutAttributeCenterX
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.view
+                                                        attribute:NSLayoutAttributeCenterX
+                                                       multiplier:1
+                                                         constant:0]];
+
+  [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.switchView
+                                                        attribute:NSLayoutAttributeCenterY
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.view
+                                                        attribute:NSLayoutAttributeCenterY
+                                                       multiplier:1
+                                                         constant:0]];
 }
 
 #pragma mark - Getters
@@ -47,9 +46,7 @@
     _switchView = [[UISwitch alloc] init];
     _switchView.translatesAutoresizingMaskIntoConstraints = NO;
     _switchView.tintColor = [UIColor redColor];
-    [_switchView addTarget:self
-                    action:@selector(switchWasToggled:)
-          forControlEvents:UIControlEventValueChanged];
+    [_switchView addTarget:self action:@selector(switchWasToggled:) forControlEvents:UIControlEventValueChanged];
   }
 
   return _switchView;
@@ -62,19 +59,14 @@
 }
 
 - (void)shakeAnimation {
-  CABasicAnimation *animation =
-      [CABasicAnimation animationWithKeyPath:@"position"];
+  CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
   [animation setDuration:0.08];
   [animation setRepeatCount:2];
   [animation setAutoreverses:YES];
-  [animation
-      setFromValue:
-          [NSValue valueWithCGPoint:CGPointMake(self.switchView.center.x - 5.0f,
-                                                self.switchView.center.y)]];
-  [animation
-      setToValue:[NSValue valueWithCGPoint:CGPointMake(
-                                               self.switchView.center.x + 5.0f,
-                                               self.switchView.center.y)]];
+  [animation setFromValue:[NSValue valueWithCGPoint:CGPointMake(self.switchView.center.x - 5.0f,
+                                                                self.switchView.center.y)]];
+  [animation setToValue:[NSValue valueWithCGPoint:CGPointMake(self.switchView.center.x + 5.0f,
+                                                              self.switchView.center.y)]];
   [self.switchView.layer addAnimation:animation forKey:@"position"];
 }
 
