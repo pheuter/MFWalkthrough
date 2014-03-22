@@ -1,7 +1,7 @@
 # MFWalkthrough
 
+[![Build Status](https://travis-ci.org/pheuter/MFWalkthrough.svg?branch=master)](https://travis-ci.org/pheuter/MFWalkthrough)
 [![Version](http://cocoapod-badges.herokuapp.com/v/MFWalkthrough/badge.png)](http://cocoadocs.org/docsets/MFWalkthrough)
-[![Platform](http://cocoapod-badges.herokuapp.com/p/MFWalkthrough/badge.png)](http://cocoadocs.org/docsets/MFWalkthrough)
 
 ## Installation
 
