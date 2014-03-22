@@ -18,4 +18,4 @@ install:
 	pod install
 
 ci:
-	$(DEFAULT_TASK) test | xcpretty -c
+	$(DEFAULT_TASK) test | xcpretty -c; exit ${PIPESTATUS[0]}
